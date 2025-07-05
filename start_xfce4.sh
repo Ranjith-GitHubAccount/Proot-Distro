@@ -4,7 +4,8 @@
 kill -9 $(pgrep -f "termux.x11") 2>/dev/null
 
 # Enable PulseAudio over Network
-pulseaudio --start --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" --exit-idle-time=-1
+"LD_PRELOAD=/system/lib64/libskcodec.so
+pulseaudio --start --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" --exit-idle-time=-1"
 
 # Prepare termux-x11 session
 export XDG_RUNTIME_DIR=${TMPDIR}
